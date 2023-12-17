@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './orders.scss';
 
 const Message: React.FC = () => {
   return (

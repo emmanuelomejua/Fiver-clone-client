@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import './addgig.scss';
 
-const Login: React.FC = () => {
+const AddGig: React.FC = () => {
   return (
     <div>
       Login
@@ -8,4 +9,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login;
+export default AddGig;

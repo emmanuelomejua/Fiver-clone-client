@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './login.scss';
 
 const Login: React.FC = () => {
   return (

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './messages.scss';
 
 const Messages: React.FC = () => {
   return (
