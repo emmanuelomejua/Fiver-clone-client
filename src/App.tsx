@@ -1,12 +1,10 @@
-import React from 'react';
+import Routes from './Routes';
 
 import './app.scss';
 
 function App() {
   return (
-    <div className="App">
-      Fiver
-    </div>
+    <Routes/>
   );
 }
 

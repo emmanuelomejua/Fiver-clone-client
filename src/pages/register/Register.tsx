@@ -1,7 +1,7 @@
 import React from 'react';
 import './register.scss';
 
-const Message: React.FC = () => {
+const Register: React.FC = () => {
   return (
     <div>
       Login
@@ -9,4 +9,4 @@ const Message: React.FC = () => {
   )
 }
 
-export default Message;
+export default Register;
