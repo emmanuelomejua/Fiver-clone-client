@@ -1,4 +1,11 @@
 .app{
     margin: 0;
     padding: 0;
+
+    .app-cont{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
 }

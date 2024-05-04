@@ -11,8 +11,10 @@ function Routes(){
     return(
       <main className='app'>
         <Navbar/>
+        <div className="app-cont">
         <Outlet/>
         <Footer/>
+        </div>
       </main>
     )
   }
