@@ -1,6 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './navbar.scss';
 import { useEffect, useState } from 'react';
+import pic1 from '../../assets/pic.jpeg'
+
+const menuLinks =  [
+    {
+        name: 'Graphice and Design'
+    },
+    {
+        name: 'Video and Animation'
+    },
+    {
+        name: 'Writing and Transition'
+    },
+    {
+        name: 'AI Services'
+    },
+    {
+        name: 'Digital Marketing'
+    },
+    {
+        name: 'Music and Audio'
+    },
+    {
+        name: 'Programming and Tech'
+    },
+    {
+        name: 'Business'
+    },
+    {
+        name: 'Lifestyle'
+    },
+]
 
 
 const Navbar = () => {
@@ -14,27 +45,35 @@ const Navbar = () => {
     const links = [
         {    
             id: 0,
-            name: 'Fiver Business'
+            name: 'Fiver Business',
+            url: '#'
         },
         {    
             id: 1,
-            name: 'Explore'
+            name: 'Explore',
+            url: '#'
         },
         {    
             id: 2,
-            name: 'English'
+            name: 'English',
+            url: '#'
         },
         {    
             id: 3,
-            name: 'Sign In'
+            name: 'Sign In',
+            url: '#'
         },
         {    
             id: 4,
-            name: !user?.isSeller && 'Become a seller'
+            name: !user?.isSeller && 'Become a seller',
+            url: '#'
         },
     ]
 
     const [active, setActive] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const { pathname } = useLocation()
 
     const isActive = () => {
         window.scrollY > 0 ? setActive(true) : setActive(false)
@@ -50,7 +89,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={active ? 'navbar active': 'navbar'}>
+    <div className={active || pathname !== '/' ? 'navbar active': 'navbar'}>
        <div className="cont">
        <div className="logo">
         <Link to='/' className='link'>
@@ -69,34 +108,38 @@ const Navbar = () => {
 
        {user && (
         <div className="user">
-            <img src="" alt="" className="" />
-            <span>{user.username}</span>
+            <img src={pic1} alt="" className="" />
+            <span onClick={() => setMenuOpen(!menuOpen)}>{user.username}</span>
+
+
+            { menuOpen && 
 
             <div className="options">
                 {user.isSeller && (
                     <>
-                        <span>Gigs</span>
-                        <span>Add New Gig</span>
+                        <Link to='/gigs' className='link'>Gigs</Link>
+                        <Link to='/addgig' className='link'>Add New Gig</Link>
                     </>
                 )}
-                <span>Orders</span>
-                <span>Messages</span>
+                <Link to='/orders' className='link'>Orders</Link>
+                <Link to='/messages' className='link'>Messages</Link>
                 <span>Logout</span>
             </div>
+            }
+
         </div>
        )}
        </div>
        </div>
 
-       {
-        active && 
+       {(active || pathname !== '/') && 
         <>
         <hr />
 
         <section className="menu">
-            <span>Testin</span>
-            <span>Test</span>
-            <span>Test</span>
+            {menuLinks.map((l) => (
+                <span className='link' key={l.name}>{l.name}</span>
+            ))}
        </section>
         </>
        }

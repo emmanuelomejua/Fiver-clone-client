@@ -1,6 +1,7 @@
 import './app.scss';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 import { AddGig, Message, Messages, Orders, Home, MyGigs, SingleGig, Gigs, Login, Register } from './pages';
 
 
@@ -11,6 +12,7 @@ function Routes(){
       <main className='app'>
         <Navbar/>
         <Outlet/>
+        <Footer/>
       </main>
     )
   }
@@ -34,12 +36,12 @@ function Routes(){
         element: <Orders/>
       },
       {
-        path: '/message',
-        element: <Message/>
-      },
-      {
         path: '/messages',
         element: <Messages/>
+      },
+      {
+        path: '/message:id',
+        element: <Message/>
       },
       {
         path: '/mygig',
