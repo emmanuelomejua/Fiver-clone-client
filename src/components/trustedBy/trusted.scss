@@ -1,0 +1,26 @@
+.trusted{
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fafafa;
+    display: flex;
+    margin: 0 auto;
+
+
+    .cont{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 20px;
+        margin: auto;
+        gap: 50px;
+
+        img{
+            height: 64px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+}
+

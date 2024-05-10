@@ -1,0 +1,30 @@
+.gigcart{
+    height: 290px;
+    width: 180px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .desc{
+        font-weight: 300;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+
+    .title{
+        font-weight: 500;
+        font-size: 18px;
+        position: absolute;
+        top: 32px;
+        left: 15px;
+    }
+}
+
