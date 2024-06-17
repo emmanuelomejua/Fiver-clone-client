@@ -2,6 +2,8 @@ import Featured from '../../components/featured/Featured';
 import TrustedBy from '../../components/trustedBy/TrustedBy';
 import Slide from '../../components/slides/Slider';
 import './home.scss';
+import Features from '../../components/features/Features';
+import Explore from '../../components/explore/Explore';
 
 const Home = () => {
   return (
@@ -9,8 +11,10 @@ const Home = () => {
       <Featured/>
       <div className="home_cont">
         <TrustedBy/>
-        <Slide/>
+        <Slide deviceType=''/>
+        <Features/>
       </div>
+        <Explore/>
     </div>
   )
 }

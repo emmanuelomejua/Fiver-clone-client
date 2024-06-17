@@ -1,4 +1,4 @@
-import './slide.scss';
+
 import { catData } from '../../data';
 import CatCard from '../catcaard/CatCard';
 
@@ -24,17 +24,17 @@ const responsive = {
   }
 };
 
-function Slide({deviceType}: any) {
+function Slide({deviceType}: {deviceType: string}) {
 
 
   return (
-    <div className="slider-container">
+
       <Carousel
         swipeable={false}
         draggable={false}
         showDots={false}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
+        ssr={true} 
         infinite={true}
         // autoPlay={deviceType !== "mobile" ? true : false}
         autoPlaySpeed={1000}
@@ -47,13 +47,12 @@ function Slide({deviceType}: any) {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {
+        {         
           catData.map((c)=> (
             <CatCard item={c}/>
           ))
         }
       </Carousel>
-    </div> 
   );
 }
 
