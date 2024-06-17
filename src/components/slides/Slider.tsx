@@ -1,6 +1,6 @@
 
 import { catData } from '../../data';
-import CatCard from '../catcaard/CatCard';
+import CatCard from '../cards/CatCard';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
