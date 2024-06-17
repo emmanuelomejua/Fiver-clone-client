@@ -1,10 +1,28 @@
 import './slide.scss';
+import Slider from "react-slick";
+import { catData } from '../../data';
+import CatCard from '../catcaard/CatCard';
 
+function Slide() {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 5
+  };
 
-const Slide = () => {
   return (
-    <div>Slider</div>
-  )
+    <div className="slider-container">
+      <Slider {...settings}>
+            {
+              catData.map((c) => (
+                <CatCard item={c} key={c.id}/>
+              ))
+            }
+      </Slider>
+    </div> 
+  );
 }
 
-export default Slide
+export default Slide;
