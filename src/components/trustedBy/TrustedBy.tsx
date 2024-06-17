@@ -1,15 +1,19 @@
 import './trusted.scss';
-import img from '../../assets/hajiya.jpeg'
+import { lg, apple, hp, samsung, dell } from './imgaes'
+
+
 
 const TrustedBy = () => {
   return (
     <div className='trusted'>
         <div className="cont">
             <span>TrustedBy: </span>
-            <img src={img} alt="" className="" />
-            <img src={img} alt="" className="" />
-            <img src={img} alt="" className="" />
-            <img src={img} alt="" className="" />
+            <img src={lg} alt="" className="" />
+            <img src={apple} alt="" className="" />
+            <img src={hp} alt="" className="" />
+            <img src={samsung} alt="" className="" />
+            <img src={dell} alt="" className="" />
+       
         </div>
     </div>
   )

@@ -60,3 +60,27 @@ export const catData = [
         img: require('./assets/pic.jpeg')
     },
 ]
+
+
+export const lists = [
+    {
+      id: 0,
+      tag: require('./assets/acer.svg')
+    },
+    {
+      id: 1,
+      tag: require('./assets/apple.svg')
+    },
+    {
+      id: 2,
+      tag: require('./assets/dell.svg')
+    },
+    {
+      id: 3,
+      tag: require('./assets/hp.svg')
+    },
+    {
+      id: 4,
+      tag: require('./assets/lg.svg')
+    },
+  ]

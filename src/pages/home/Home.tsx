@@ -1,14 +1,16 @@
 import Featured from '../../components/featured/Featured';
 import TrustedBy from '../../components/trustedBy/TrustedBy';
-import Splider from '../../components/slides/Splide';
+import Slide from '../../components/slides/Slider';
 import './home.scss';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <div className='home'>
       <Featured/>
-      <TrustedBy/>
-      <Splider/>
+      <div className="home_cont">
+        <TrustedBy/>
+        <Slide/>
+      </div>
     </div>
   )
 }
