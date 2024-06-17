@@ -2,9 +2,11 @@ import './slide.scss';
 import Slider from "react-slick";
 import { catData } from '../../data';
 import CatCard from '../catcaard/CatCard';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Slide() {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
