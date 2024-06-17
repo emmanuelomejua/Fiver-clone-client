@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     transition: 0.5s all ease-in-out;
+    z-index: 99;
 
     &.active{
         background: #fff;

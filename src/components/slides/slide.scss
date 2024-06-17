@@ -1,5 +1,9 @@
 .slider-container{
     height: 100%;
-    background-color: red;
+    max-width: 1200px;
+    width: 100%;
+    overflow-x: hidden;
     display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 }
