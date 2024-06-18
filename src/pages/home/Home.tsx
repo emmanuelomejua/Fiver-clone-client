@@ -1,22 +1,22 @@
 import Featured from '../../components/featured/Featured';
 import TrustedBy from '../../components/trustedBy/TrustedBy';
-import Slide from '../../components/slides/Slider';
+import CatSlide from '../../section/slides/CatSlide';
 import './home.scss';
 import Features from '../../components/features/Features';
 import Explore from '../../components/explore/Explore';
-// import ProjectSlide from '../../components/slides/ProjectSlide';
+import ProjectSlide from '../../section/slides/ProjectSlide';
+
 
 const Home = () => {
   return (
     <div className='home'>
-      <Featured/>
-      <div className="home_cont">
+        <Featured/>
         <TrustedBy/>
-        <Slide deviceType=''/>
+        <CatSlide/>
         <Features/>
-      </div>
         <Explore/>
-        {/* <ProjectSlide deviceType=''/> */}
+        <ProjectSlide/>
+   
     </div>
   )
 }

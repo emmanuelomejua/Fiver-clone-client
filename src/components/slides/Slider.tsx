@@ -1,6 +1,5 @@
+import { ReactNode } from 'react';
 
-import { catData } from '../../data';
-import CatCard from '../cards/CatCard';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -9,7 +8,7 @@ import 'react-multi-carousel/lib/styles.css';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 6,
+    items: 5,
     slidesToSlide: 1 
   },
   tablet: {
@@ -24,7 +23,13 @@ const responsive = {
   }
 };
 
-function Slide({deviceType}: {deviceType: string}) {
+
+type slideProps = {
+  deviceType: string;
+  children: ReactNode;
+};
+
+function Slide({deviceType, children}: slideProps) {
 
 
   return (
@@ -47,11 +52,7 @@ function Slide({deviceType}: {deviceType: string}) {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        {         
-          catData.map((c)=> (
-            <CatCard item={c}/>
-          ))
-        }
+        {children}
       </Carousel>
   );
 }
