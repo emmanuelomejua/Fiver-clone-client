@@ -5,7 +5,6 @@ import { catData } from '../../data';
 
 const CatSlide = () => {
   return (
-    <div className='slider-cont'>
       <Slider deviceType=''>
         {
           catData.map((item) => (
@@ -13,7 +12,6 @@ const CatSlide = () => {
           ))
         }
       </Slider>
-    </div>
   )
 }
 

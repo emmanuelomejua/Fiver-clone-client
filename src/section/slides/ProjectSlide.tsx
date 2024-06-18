@@ -9,7 +9,6 @@ import Slider from '../../components/slides/Slider';
 
 const ProjectSlide = () => {
   return (
-    <section className="slider-cont">
       <Slider deviceType="">
         {
           projects.map((item, index) => (
@@ -17,7 +16,6 @@ const ProjectSlide = () => {
           ))
         }
       </Slider>
-    </section>
   )
 }
 
