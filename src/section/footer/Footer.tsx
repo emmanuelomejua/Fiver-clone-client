@@ -65,9 +65,9 @@ const Footer = () => {
             <span>Learn</span>
             <span>Working Not Working</span>
           </div>
-        <hr />
           
         </div>
+        <hr />
 
         <div className="bottom">
           <div className="left">

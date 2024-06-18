@@ -1,0 +1,11 @@
+.gigs{
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+
+    .gigs-con{
+        display: flex;
+        flex-direction: column;
+    }
+}
