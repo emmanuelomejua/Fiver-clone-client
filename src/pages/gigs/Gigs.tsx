@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {  useState } from 'react';
 import './gigs.scss'
+import down from './down.png';
+import GigCard from '../../components/cards/GigCard';
+import { gigs } from '../../data';
+
+
+// type sortType = {
+//   type: SetStateAction<string> 
+// }
 
 const Gigs = () => {
-  return (
+
+  const [open, setOpen] = useState(false);
+  const [sort, setSort] = useState('sales');
+
+  const reSort = (type: any) => {
+    setSort(type);
+    setOpen(false);
+  }
+
+  return ( 
     <main className='gigs'>
       <section className="gigs-cont">
-        <span>FIVER, GRAPHICS & DESIGN </span>
+        <span className='bc'>FIVER, GRAPHICS & DESIGN </span>
         <h1>AI Artist</h1>
         <p>Explore the boundary of art and technologies with fiver AI artist</p>
 
@@ -19,15 +36,28 @@ const Gigs = () => {
 
         <div className="right">
           <span className='sortby'>Sort By</span>
-          <span className='sortType'>Best Selling</span>
-          <img src="./img/down.png" alt="" />
+          <span className='sortType'>{sort === 'sales' ? 'Best Selling' : 'Newest'}</span>
+          <img src={down} alt="" onClick={() => setOpen(!open)}/>
 
+          { open &&
           <div className="r-menu">
-            <span>Newest</span>
-            <span>Best Selling</span>
+            { sort === 'sales' ?
+              <span onClick={() => reSort('createdAt')}>Newest</span>:
+              <span onClick={() => reSort('sales')}>Best Selling</span>
+            }
           </div>
+          }
         </div>
       </div>
+
+        <section className="cards">
+          { 
+          gigs.map((gig) => (
+            <GigCard key={gig.id} item={gig}/>
+          ))
+          }
+        </section>
+        
       </section>
     </main>
   )

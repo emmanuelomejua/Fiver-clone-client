@@ -1,7 +1,7 @@
 import React from 'react';
 import './message.scss';
 
-const Message: React.FC = () => {
+const Message = () => {
   return (
     <div>
       Login

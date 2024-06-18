@@ -1,11 +1,102 @@
 .gigs{
     max-width: 1200px;
-    width: 100%;
+    width: 100vw;
     display: flex;
     margin: 0 auto;
 
-    .gigs-con{
+    .gigs-cont{
         display: flex;
         flex-direction: column;
+        padding: 10px 0;
+        gap: 12px;
+        width: 100%;
+
+        .bc{
+            font-size: 13px;
+            font-weight: 300;
+            color: #555;
+        }
+
+        p{
+            color: #999;
+            font-weight: 300;
+        }
+
+        .menu{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .left{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #555;
+
+                input{
+                    padding: 8px;
+                    border: 1px solid lightgray;
+                    outline: none;
+                    font-size: 13px;
+                }
+
+                button{
+                    background-color: #1dbf73;
+                    padding: 8px 12px;
+                    border: none;
+                    cursor: pointer;
+                    font-weight: 500;
+                    font-size: 13px;
+                    color: #fff;
+                }
+            }
+
+            .right{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                position: relative;
+
+                .sortby{
+                    font-weight: 300;
+                    font-size: 13px;
+                }
+
+                .sortType{
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+
+                img{
+                    width: 15px;
+                    cursor: pointer;
+                }
+
+
+                .r-menu{
+                    position: absolute;
+                    padding: 15px;
+                    background: #fff;
+                    border: .5px solid lightgrey;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    border-radius: 5px;
+                    top: 20px;
+                    right: 0;
+                    color: #444;
+
+                    span{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 }
