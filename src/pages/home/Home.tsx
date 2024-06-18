@@ -4,6 +4,7 @@ import Slide from '../../components/slides/Slider';
 import './home.scss';
 import Features from '../../components/features/Features';
 import Explore from '../../components/explore/Explore';
+// import ProjectSlide from '../../components/slides/ProjectSlide';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <Features/>
       </div>
         <Explore/>
+        {/* <ProjectSlide deviceType=''/> */}
     </div>
   )
 }

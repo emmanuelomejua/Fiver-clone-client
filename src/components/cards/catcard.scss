@@ -33,5 +33,41 @@
 
 
 .projectcard{
-    
+    width: 260px;
+    height: 260px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 16px -6px;
+
+    img{
+        height: 70%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .info{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+
+        img{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .text{
+            h2{
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            span{
+                font-size: 13px;
+                font-weight: 300;
+            }
+        }
+    }
 }
