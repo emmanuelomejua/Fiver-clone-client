@@ -3,8 +3,9 @@
     justify-content: center;
   
     .container {
-      width: 1400px;
-      padding: 50px 0px;
+        max-width: 1200px;
+        width: 100%;
+        padding: 10px 0px;
   
       .title {
         display: flex;

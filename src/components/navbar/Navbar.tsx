@@ -117,12 +117,12 @@ const Navbar = () => {
             <div className="options">
                 {user.isSeller && (
                     <>
-                        <Link to='/gigs' className='link'>Gigs</Link>
-                        <Link to='/addgig' className='link'>Add New Gig</Link>
+                        <Link to='/gigs' className='link' onClick={() => setMenuOpen(false)}>Gigs</Link>
+                        <Link to='/addgig' className='link' onClick={() => setMenuOpen(false)}>Add New Gig</Link>
                     </>
                 )}
-                <Link to='/orders' className='link'>Orders</Link>
-                <Link to='/messages' className='link'>Messages</Link>
+                <Link to='/orders' className='link' onClick={() => setMenuOpen(false)}>Orders</Link>
+                <Link to='/messages' className='link' onClick={() => setMenuOpen(false)}>Messages</Link>
                 <span>Logout</span>
             </div>
             }
