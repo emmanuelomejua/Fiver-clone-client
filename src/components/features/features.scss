@@ -1,12 +1,16 @@
 .features{
+    display: flex;
     background-color: #f1fdf7;
     padding: 10px;
     border-radius: 10px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 
     .featues-cont{
         display: flex;
         align-items: center;
-        gap: 40px;
+        gap: 20px;
 
         
         .f-items{
