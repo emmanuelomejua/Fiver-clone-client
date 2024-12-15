@@ -1,7 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './navbar.scss';
 import { useEffect, useState } from 'react';
-import pic1 from '../../assets/pic.jpeg'
+import SERVER from '../../utils/server';
+
 
 const menuLinks =  [
     {
@@ -36,11 +37,10 @@ const menuLinks =  [
 
 const Navbar = () => {
 
-    const user = {
-        id: 0,
-        isSeller: true,
-        username: 'Chibu'
-    }
+    const currentUser = localStorage.getItem('currentUser')
+
+    const user = currentUser ?  JSON.parse(currentUser) : null;
+
 
     const links = [
         {    
@@ -61,14 +61,16 @@ const Navbar = () => {
         {    
             id: 3,
             name: 'Sign In',
-            url: '#'
+            url: '/login'
         },
         {    
             id: 4,
             name: !user?.isSeller && 'Become a seller',
             url: '#'
         },
-    ]
+    ];
+
+    const navigate = useNavigate()
 
     const [active, setActive] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -88,6 +90,16 @@ const Navbar = () => {
     }, [])
 
 
+    const handleLogout = async () => {
+        try {
+            await SERVER.post('auth/logout');
+            localStorage.setItem('currentUser', '')
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
   return (
     <div className={active || pathname !== '/' ? 'navbar active': 'navbar'}>
        <div className="cont">
@@ -101,14 +113,14 @@ const Navbar = () => {
        <div className="links">
         {
             links.map((l) => (
-                <span key={l.id}>{l.name}</span>
+                <Link to={l.url} className='link' key={l.id}>{l.name}</Link>
             ))
         }
-       {!user && <button>Join</button>}
+       {!user && <button onClick={() => navigate('/register')}>Join</button>}
 
        {user && (
         <div className="user">
-            <img src={pic1} alt="" className="" />
+            <img src={user?.img ? user?.img : '/img//noavatar.jpg'} alt="" className="" />
             <span onClick={() => setMenuOpen(!menuOpen)}>{user.username}</span>
 
 
@@ -123,7 +135,7 @@ const Navbar = () => {
                 )}
                 <Link to='/orders' className='link' onClick={() => setMenuOpen(false)}>Orders</Link>
                 <Link to='/messages' className='link' onClick={() => setMenuOpen(false)}>Messages</Link>
-                <span>Logout</span>
+                <span onClick={handleLogout}>Logout</span>
             </div>
             }
 

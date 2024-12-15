@@ -3,7 +3,6 @@
     justify-content: center;
     background-color: #013914;
     flex-direction: column;
-    // width: 100vw;
     color: #fff;
     position: sticky;
     top: 0;
@@ -43,6 +42,8 @@
             align-items: center;
             gap: 14px;
             font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
 
             .user{
                 display: flex;
@@ -84,6 +85,7 @@
                 border: none;
                 border: .5px solid lightcyan;
                 background-color: transparent;
+                cursor: pointer;
 
                 &:hover{
                     background-color: #1dbf73;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SERVER from '../../utils/server'
-import { useNavigate } from 'react-router-dom';
 import './login.scss';
 
 const Login = () => {
@@ -9,16 +8,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const res = await SERVER.post("/auth/login", { email, password });
-      localStorage.setItem("currentUser", JSON.stringify(res.data));
-      navigate("/")
+      const res = await SERVER.post("auth/login", { email, password });
+      localStorage.setItem("currentUser", JSON.stringify(res?.data));
+      window.location.replace('/login')
     } catch (err: any) {
-      setError(err.response.data);
+      console.log(err)
+      setError(err?.response?.data);
     }
   };
 
@@ -26,11 +25,11 @@ const Login = () => {
     <div className="login">
       <form onSubmit={handleSubmit}>
         <h1>Sign in</h1>
-        <label htmlFor="">Username</label>
+        <label htmlFor="">Email</label>
         <input
           name="username"
-          type="text"
-          placeholder="johndoe"
+          type="email"
+          placeholder="user@email.com"
           onChange={(e) => setEmail(e.target.value)}
         />
 
