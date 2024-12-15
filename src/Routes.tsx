@@ -57,16 +57,16 @@ function Routes(){
         path: '/gigs/:id',
         element: <SingleGig/>
       },
+      {
+        path: '/login',
+        element: <Login/>
+      },
+      {
+        path: '/register',
+        element: <Register/>
+      }
     ]
     },
-    {
-      path: '/login',
-      element: <Login/>
-    },
-    {
-      path: '/register',
-      element: <Register/>
-    }
   ])
 
   return (

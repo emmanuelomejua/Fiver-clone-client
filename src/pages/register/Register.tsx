@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './register.scss';
 
-const Register: React.FC = () => {
+
+const initialState = {
+  username: '',
+  email: '',
+  isSeller: false,
+  country: '',
+  password: '',
+  img: '',
+  desc: ''
+}
+
+const Register = () => {
+
+  const [user, setUser] = useState(initialState)
 
   const handleSubmit = () => {
 
@@ -23,7 +36,7 @@ const Register: React.FC = () => {
           <input
             name="email"
             type="email"
-            placeholder="email"
+            placeholder="user@email.com"
             // onChange={handleChange}
           />
           <label htmlFor="">Password</label>
@@ -67,7 +80,7 @@ const Register: React.FC = () => {
             name="desc"
             id=""
             cols={30}
-            rows={10}
+            rows={7}
             // onChange={handleChange}
           />
         </div>
