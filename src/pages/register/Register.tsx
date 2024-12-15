@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState,  FormEvent } from 'react';
 import './register.scss';
+import SERVER from '../../utils/server';
+// import upload from '../../utils/upload';
 
 
 const initialState = {
@@ -14,11 +16,46 @@ const initialState = {
 
 const Register = () => {
 
-  const [user, setUser] = useState(initialState)
+  const [user, setUser] = useState(initialState);
+  const [file, setFile] = useState<string>('')
 
-  const handleSubmit = () => {
-
+  const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement> ) => {
+    const {name, value } = e.target;
+    setUser({...user, [name]: value})
   }
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files[0]) {
+      setFile(files[0].name); 
+    } else {
+      setFile('');
+    }
+  }
+
+
+
+  const handleSeller = (e: ChangeEvent<HTMLInputElement>) => {
+    setUser({...user, isSeller: e.target.checked})
+  }
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // const url = await upload(file);
+
+    try {
+      const res = await SERVER.post('auth/register', {
+        ...user, 
+        // img: url.toString()
+      })
+      res.data &&
+      window.location.replace('/login')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  console.log(file)
 
   return (
     <div className='register'>
@@ -30,29 +67,29 @@ const Register = () => {
             name="username"
             type="text"
             placeholder="johndoe"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="">Email</label>
           <input
             name="email"
             type="email"
             placeholder="user@email.com"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="">Password</label>
           <input name="password" type="password" 
-          // onChange={handleChange}
+          onChange={handleChange}
            />
           <label htmlFor="">Profile Picture</label>
           <input type="file" 
-          // onChange={(e) => setFile(e.target.files[0])} 
+          onChange={handleFileChange} 
           />
           <label htmlFor="">Country</label>
           <input
             name="country"
             type="text"
             placeholder="Usa"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
           <button type="submit">Register</button>
         </div>
@@ -62,7 +99,7 @@ const Register = () => {
             <label htmlFor="">Activate the seller account</label>
             <label className="switch">
               <input type="checkbox" 
-              // onChange={handleSeller} 
+              onChange={handleSeller} 
               />
               <span className="slider round"></span>
             </label>
@@ -72,7 +109,7 @@ const Register = () => {
             name="phone"
             type="text"
             placeholder="+1 234 567 89"
-            // onChange={handleChange}
+            onChange={handleChange}
           />
           <label htmlFor="">Description</label>
           <textarea
@@ -81,7 +118,7 @@ const Register = () => {
             id=""
             cols={30}
             rows={7}
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
       </form>
